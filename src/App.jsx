@@ -1,73 +1,59 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import Features from './components/Features';
-import Products from './components/Products';
+import AboutCotton from './components/AboutCotton';
+import CottonTypes from './components/CottonTypes';
+import CottonProcess from './components/CottonProcess';
+import WhyChooseUs from './components/WhyChooseUs';
+import GallerySection from './components/GallerySection';
+import CallToAction from './components/CallToAction';
+import BusinessStats from './components/BusinessStats';
 import Footer from './components/Footer';
+import AboutUs from './components/AboutUs';
+import Blogs from './components/Blogs';
+import SEO from './components/SEO';
 
-function App() {
-  const themes = [
-    {
-      name: 'Theme 1',
-      headerTransparent: true,
-      footerTransparent: true,
-      headerCustomClass: 'text-white',
-      footerCustomClass: 'text-white',
-      bgClass: 'bg-black',
-      titleColor: 'text-white',
-      descColor: 'text-slate-300',
-    },
-    {
-      name: 'Theme 2',
-      headerTransparent: false,
-      footerTransparent: false,
-      bgClass: 'bg-brand-light',
-      titleColor: 'text-brand-dark',
-      descColor: 'text-slate-600',
-    },
-    {
-      name: 'Theme 3',
-      headerTransparent: false,
-      footerTransparent: false,
-      headerCustomClass: 'bg-brand-dark text-white',
-      footerCustomClass: 'bg-brand-dark text-white',
-      bgClass: 'bg-brand-dark',
-      titleColor: 'text-white',
-      descColor: 'text-slate-300',
-      btnPrimary: 'bg-brand-coral text-white hover:bg-[#c95542]',
-      btnSecondary: 'bg-brand-gold text-white hover:bg-[#d4b84c]'
-    }
-  ];
-
-  const [current, setCurrent] = React.useState(0);
-  const theme = themes[current];
-
+// Home Page Component
+const HomePage = () => {
   return (
     <>
-      {/* theme selector buttons */}
-      <div className="fixed top-0 right-0 z-[1100] p-5 flex gap-1">
-        {themes.map((t, i) => (
-          <button
-            key={i}
-            className={`px-3 py-1 rounded-md text-sm font-semibold transition-colors ${i === current ? 'bg-brand-teal text-white' : 'bg-white/90 text-brand-dark'
-              }`}
-            onClick={() => setCurrent(i)}
-          >
-            {t.name}
-          </button>
-        ))}
-      </div>
-
-      <div className={`w-full ${theme.bgClass}`}>
-        <Header themeType={current + 1} transparent={theme.headerTransparent} customClass={theme.headerCustomClass || ''} />
-        <main>
-          <Hero theme={theme} />
-          <Features theme={theme} themeType={current + 1} />
-          <Products theme={theme} themeType={current + 1} />
-        </main>
-        <Footer themeType={current + 1} transparent={theme.footerTransparent} customClass={theme.footerCustomClass || ''} />
-      </div>
+      <SEO
+        title="Aarnalaxmi Cotton - Premium Quality Cotton Supplier | Global Trading & Export"
+        description="Leading certified organic and premium cotton supplier from India. Delivering sustainable cotton fiber to global textile manufacturers through trusted farming networks since 1998."
+        keywords="organic cotton supplier, sustainable cotton farming, premium raw cotton trading, Indian cotton export, high-grade cotton fiber, BCI cotton partner, GOTS certified cotton, Gujarat cotton industry, Ahmedabad cotton supply, textile cotton distributor, global cotton trade, Aarnalaxmi Enterprises"
+        url="/"
+      />
+      <main>
+        <Hero />
+        <BusinessStats />
+        <AboutCotton />
+        <CottonTypes />
+        <CottonProcess />
+        <WhyChooseUs />
+        <GallerySection />
+        <CallToAction />
+      </main>
     </>
+  );
+};
+
+function App() {
+  return (
+    <HelmetProvider>
+      <Router>
+        <div className="w-full bg-white">
+          <Header />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/blogs" element={<Blogs />} />
+          </Routes>
+          <Footer />
+        </div>
+      </Router>
+    </HelmetProvider>
   );
 }
 

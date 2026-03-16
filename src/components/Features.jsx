@@ -35,11 +35,10 @@ const featuresData = [
   }
 ];
 
-const Features = ({ theme = {}, themeType = 1 }) => {
+const Features = () => {
   const isDark = false; // Forced light mode for all themes
   const sectionBg = 'bg-white';
   const titleColor = 'text-brand-dark';
-  const descColor = 'text-slate-600';
   const cardBg = 'bg-white shadow-[0_15px_35px_rgba(0,0,0,0.05)] border-t-4';
   const cardTitle = 'text-brand-dark';
   const cardDesc = 'text-slate-600';
