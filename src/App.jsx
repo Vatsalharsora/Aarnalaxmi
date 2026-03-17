@@ -13,6 +13,8 @@ import BusinessStats from './components/BusinessStats';
 import Footer from './components/Footer';
 import AboutUs from './components/AboutUs';
 import Blogs from './components/Blogs';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import TermsAndConditions from './components/TermsAndConditions';
 import SEO from './components/SEO';
 
 // Home Page Component
@@ -20,9 +22,9 @@ const HomePage = () => {
   return (
     <>
       <SEO
-        title="Aarnalaxmi Cotton - Premium Quality Cotton Supplier | Global Trading & Export"
-        description="Leading certified organic and premium cotton supplier from India. Delivering sustainable cotton fiber to global textile manufacturers through trusted farming networks since 1998."
-        keywords="organic cotton supplier, sustainable cotton farming, premium raw cotton trading, Indian cotton export, high-grade cotton fiber, BCI cotton partner, GOTS certified cotton, Gujarat cotton industry, Ahmedabad cotton supply, textile cotton distributor, global cotton trade, Aarnalaxmi Enterprises"
+        title="Aarnalaxmi Cotton - Top Organic Cotton Supplier & Global Bulk Exporter"
+        description="Leading certified GOTS organic & premium cotton supplier from India. Bulk cotton supply, international trading, and sustainable export to 65+ nations since 1998."
+        keywords="organic cotton bulk supplier India, global cotton export company, wholesale raw cotton trading, premium fiber supplier Ahmedabad, sustainable cotton sourcing Gujarat, BCI certified cotton export, high-grade Indian cotton bales, textile industry cotton distributor, bulk cotton supply, international cotton export, raw cotton trading, cotton fiber supplier, sustainable cotton export, cotton bales export, textile cotton distributor"
         url="/"
       />
       <main>
@@ -49,6 +51,8 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/blogs" element={<Blogs />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-conditions" element={<TermsAndConditions />} />
           </Routes>
           <Footer />
         </div>

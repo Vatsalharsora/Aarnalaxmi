@@ -84,13 +84,13 @@ const Header = () => {
       >
         <div className="w-full max-w-7xl mx-auto px-8 flex justify-between items-center">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-3 flex-shrink-0">
+          <Link to="/" className="flex items-center gap-3 flex-shrink-0">
             <img
               src={logo}
               alt="Aarnalaxmi Enterprises"
               className={`w-auto transition-all duration-300 ${scrolled ? 'h-10' : 'h-14'}`}
             />
-          </a>
+          </Link>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
@@ -259,7 +259,9 @@ const Header = () => {
       >
         {/* Top bar */}
         <div className="flex justify-between items-center px-6 py-5 border-b border-white/10">
-          <img src={logoWhite} alt="Aarnalaxmi" className="h-10" />
+          <Link to="/" onClick={() => setMobileMenuOpen(false)}>
+            <img src={logoWhite} alt="Aarnalaxmi" className="h-10" />
+          </Link>
           <button onClick={toggleMenu} className="text-white w-9 h-9 flex items-center justify-center rounded-full bg-white/10">
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />

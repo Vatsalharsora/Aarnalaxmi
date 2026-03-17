@@ -144,7 +144,10 @@ const Products = () => {
           </div>
           
           <div className="text-center mb-8">
-            <p className="text-lg text-gray-600">{productCategories[activeTab].description}</p>
+            <p className="text-lg text-gray-600 max-w-4xl mx-auto">
+              {productCategories[activeTab].description}. 
+              {activeTab === 0 && " India stands as the largest producer, contributing nearly 80% of the world’s organic cotton. Our network follows certified organic farming practices, ensuring both environmental sustainability and high-quality fiber."}
+            </p>
           </div>
         </div>
 
@@ -203,6 +206,81 @@ const Products = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Industry Insights - COTTON General Info */}
+        <div className="mt-20 mb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="bg-white p-10 rounded-[2.5rem] shadow-sm border border-slate-100">
+              <span className="inline-block px-3 py-1 bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest mb-6">Market Overview</span>
+              <h3 className="text-3xl font-bold text-gray-900 mb-6">The Power of Indian Cotton</h3>
+              <div className="space-y-4 text-gray-600 leading-relaxed">
+                <p>
+                  Cotton is one of India’s most important fiber and cash crops, playing a crucial role in both the industrial and agricultural economy. As the second-largest producer, India accounts for 23% of the total cotton produced in the world.
+                </p>
+                <p>
+                  The total acreage with 130.61 lakh hectares area under cotton cultivation i.e. around 40% of world area. India has become a preferred sourcing destination for many leading international textile brands and retailers.
+                </p>
+                <p className="font-medium text-slate-800">
+                  Aarnalaxmi Enterprises collaborates with farmers, intermediaries, and retailers to promote sustainable cotton farming across Gujarat, Maharashtra, and Rajasthan.
+                </p>
+              </div>
+            </div>
+            <div className="space-y-8">
+              <div className="bg-green-50 p-8 rounded-3xl border border-green-100">
+                <h4 className="text-xl font-bold text-green-800 mb-3">Sustaining Livelihoods</h4>
+                <p className="text-green-700/80">
+                  It plays a major role in sustaining the livelihood of an estimated 6 million cotton farmers and 40-50 million people engaged in related activity such as cotton processing & trade.
+                </p>
+              </div>
+              <div className="bg-amber-50 p-8 rounded-3xl border border-amber-100">
+                <h4 className="text-xl font-bold text-amber-800 mb-3">Environmental Challenges</h4>
+                <p className="text-amber-700/80">
+                  Cotton cultivation in India consumes more than half of all chemical pesticides used in agriculture. We help businesses adopt global sustainability standards to reduce water risks and chemical footprints.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Organic Cotton Detailed Section & 5 Facts */}
+        <div className="bg-white rounded-[3rem] p-12 md:p-20 shadow-xl border border-slate-100 relative overflow-hidden mb-20">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-green-50 rounded-full blur-3xl -z-0 translate-x-1/3 -translate-y-1/3 opacity-60" />
+          
+          <div className="relative z-10">
+            <div className="max-w-3xl mb-16">
+              <h2 className="text-4xl font-bold text-gray-900 mb-6">Organic Cotton Movement</h2>
+              <p className="text-xl text-gray-600 leading-relaxed">
+                Organic cotton isn’t just a fiber — it’s a commitment to a healthier planet. Unlike conventional cotton, it’s grown using natural farming methods that nurture the soil, conserve water, and protect biodiversity.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+              {[
+                { title: 'Less Water & Energy', desc: 'Grown on small-scale farms that are rain-fed, making soil better at holding water.', icon: '💧' },
+                { title: 'Healthy Ecosystem', desc: 'No pesticides or harmful chemicals. Cleaner air, water, and soil biodiversity.', icon: '🦋' },
+                { title: 'Better Livelihoods', desc: 'Farmers are not exposed to toxic chemicals and can grow food crops alongside.', icon: '🏠' },
+                { title: 'Certified & Traceable', desc: 'Sourced through GOTS and OCS standards for trusted, traceable claims.', icon: '📜' },
+                { title: 'Softer & Durable', desc: 'Often handpicked, maintaining purity of the fiber and natural softness.', icon: '☁️' }
+              ].map((fact, i) => (
+                <div key={i} className="bg-slate-50 p-8 rounded-2xl hover:bg-green-50 transition-colors border border-transparent hover:border-green-100">
+                  <div className="text-3xl mb-4">{fact.icon}</div>
+                  <h4 className="text-lg font-bold text-gray-900 mb-2">{fact.title}</h4>
+                  <p className="text-sm text-gray-600">{fact.desc}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="bg-green-600 rounded-3xl p-10 flex flex-col lg:flex-row items-center gap-10 text-white shadow-lg">
+              <div className="text-4xl lg:text-5xl font-black opacity-40">80%</div>
+              <div className="flex-1">
+                <h4 className="text-2xl font-bold mb-2">Global Leader in Organic Production</h4>
+                <p className="text-green-50 leading-relaxed">
+                  Did you know that nearly 80% of the world’s organic cotton comes from India? We are at the heart of this movement, ensuring your fabric choices help protect the planet.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Quality Features */}

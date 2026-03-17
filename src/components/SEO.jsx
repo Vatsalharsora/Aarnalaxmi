@@ -58,6 +58,49 @@ const SEO = ({
         ]
       },
       {
+        "@type": "LocalBusiness",
+        "@id": `${siteUrl}/#localbusiness`,
+        "name": "Aarnalaxmi Cotton",
+        "image": `${siteUrl}/logo-aarnalaxmi.png`,
+        "priceRange": "$$$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Global Trade Centre, Cotton Avenue, Sector 15",
+          "addressLocality": "Ahmedabad",
+          "addressRegion": "Gujarat",
+          "postalCode": "380015",
+          "addressCountry": "IN"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "23.0225",
+          "longitude": "72.5714"
+        },
+        "url": siteUrl,
+        "telephone": "+91-98765-43210"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What types of cotton does Aarnalaxmi supply?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We supply Premium Raw Cotton, GOTS Certified Organic Cotton, BCI Cotton, and Specialty Long Staple Cotton for global textile industries."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you offer worldwide cotton export?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, Aarnalaxmi exports premium quality cotton to over 65 nations with full traceability and international quality certifications."
+            }
+          }
+        ]
+      },
+      {
         "@type": "WebSite",
         "@id": `${siteUrl}/#website`,
         "url": siteUrl,
@@ -103,7 +146,6 @@ const SEO = ({
     ]
   };
 
-  // Add article structured data if it's an article/blog post
   if (article && publishedTime) {
     structuredData["@graph"].push({
       "@type": "Article",
@@ -187,7 +229,7 @@ const SEO = ({
       <meta name="msapplication-TileColor" content="#059669" />
       <meta name="application-name" content="Aarnalaxmi Cotton" />
       <meta name="apple-mobile-web-app-title" content="Aarnalaxmi Cotton" />
-      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="default" />
       
       {/* Geo Tags */}
