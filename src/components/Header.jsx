@@ -5,7 +5,7 @@ import logoWhite from '../assets/logo_white_aarnalaxmi.svg';
 
 const cottonMenuItems = [
   {
-    href: '#about-cotton',
+    href: '/about-cotton',
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8}
@@ -154,34 +154,40 @@ const Header = () => {
 
                       {/* Menu Items */}
                       <div className="py-2">
-                        {cottonMenuItems.map((item, i) => (
-                          <a
-                            key={i}
-                            href={item.href}
-                            onClick={() => setDropdownOpen(false)}
-                            className="flex items-start gap-3.5 px-4 py-3 mx-2 my-0.5 rounded-xl hover:bg-green-50 group transition-all duration-150"
-                          >
-                            {/* Icon box */}
-                            <div className="w-9 h-9 rounded-lg bg-gray-100 group-hover:bg-green-100 flex items-center justify-center flex-shrink-0 text-gray-500 group-hover:text-green-600 transition-all duration-150">
-                              {item.icon}
-                            </div>
-                            {/* Text */}
-                            <div>
-                              <div className="text-[14px] font-semibold text-gray-800 group-hover:text-green-700 transition-colors leading-snug">
-                                {item.label}
+                        {cottonMenuItems.map((item, i) => {
+                          const isInternal = item.href.startsWith('/');
+                          const Component = isInternal ? Link : 'a';
+                          const props = isInternal ? { to: item.href } : { href: item.href };
+
+                          return (
+                            <Component
+                              key={i}
+                              {...props}
+                              onClick={() => setDropdownOpen(false)}
+                              className="flex items-start gap-3.5 px-4 py-3 mx-2 my-0.5 rounded-xl hover:bg-green-50 group transition-all duration-150"
+                            >
+                              {/* Icon box */}
+                              <div className="w-9 h-9 rounded-lg bg-gray-100 group-hover:bg-green-100 flex items-center justify-center flex-shrink-0 text-gray-500 group-hover:text-green-600 transition-all duration-150">
+                                {item.icon}
                               </div>
-                              <div className="text-[12px] text-gray-400 group-hover:text-green-500 transition-colors mt-0.5 leading-snug">
-                                {item.desc}
+                              {/* Text */}
+                              <div>
+                                <div className="text-[14px] font-semibold text-gray-800 group-hover:text-green-700 transition-colors leading-snug">
+                                  {item.label}
+                                </div>
+                                <div className="text-[12px] text-gray-400 group-hover:text-green-500 transition-colors mt-0.5 leading-snug">
+                                  {item.desc}
+                                </div>
                               </div>
-                            </div>
-                            {/* Arrow */}
-                            <div className="ml-auto self-center opacity-0 group-hover:opacity-100 transition-opacity">
-                              <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                              </svg>
-                            </div>
-                          </a>
-                        ))}
+                              {/* Arrow */}
+                              <div className="ml-auto self-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                </svg>
+                              </div>
+                            </Component>
+                          );
+                        })}
                       </div>
 
                       {/* Footer strip */}
@@ -283,17 +289,26 @@ const Header = () => {
           <div className="py-1">
             <div className="text-green-400 font-bold text-sm uppercase tracking-widest px-4 mb-2">Cotton</div>
             <div className="bg-white/5 rounded-xl overflow-hidden border border-white/10">
-              {cottonMenuItems.map((item, i) => (
-                <a
-                  key={i}
-                  href={item.href}
-                  onClick={toggleMenu}
-                  className="flex items-center gap-3 px-5 py-3.5 text-gray-300 hover:text-white hover:bg-white/10 transition-colors border-b border-white/5 last:border-0"
-                >
-                  <span className="text-green-400">{item.icon}</span>
-                  <span className="text-base font-medium">{item.label}</span>
-                </a>
-              ))}
+              {cottonMenuItems.map((item, i) => {
+                const isInternal = item.href.startsWith('/');
+                const Component = isInternal ? Link : 'a';
+                const props = isInternal ? { to: item.href } : { href: item.href };
+
+                return (
+                  <Component
+                    key={i}
+                    {...props}
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      if (isInternal) window.scrollTo(0, 0);
+                    }}
+                    className="flex items-center gap-3 px-5 py-3.5 text-gray-300 hover:text-white hover:bg-white/10 transition-colors border-b border-white/5 last:border-0"
+                  >
+                    <span className="text-green-400">{item.icon}</span>
+                    <span className="text-base font-medium">{item.label}</span>
+                  </Component>
+                );
+              })}
             </div>
           </div>
 

@@ -32,6 +32,7 @@ const Footer = () => {
             <h4 className="text-lg font-bold text-slate-800 mb-6 font-heading relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-1/2 after:h-0.5 after:bg-brand-teal">Company</h4>
             <ul className="space-y-4">
               <li><Link to="/about" className="text-slate-600 hover:text-brand-teal transition-colors flex items-center gap-3 font-medium"><svg className="w-4 h-4 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg> About Us</Link></li>
+              <li><Link to="/blogs" className="text-slate-600 hover:text-brand-teal transition-colors flex items-center gap-3 font-medium"><svg className="w-4 h-4 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg> Blogs</Link></li>
               <li><a href="#" className="text-slate-600 hover:text-brand-teal transition-colors flex items-center gap-3 font-medium"><svg className="w-4 h-4 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg> Our Process</a></li>
             </ul>
           </div>

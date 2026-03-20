@@ -157,7 +157,7 @@ const AboutUs = () => {
         </section>
 
         {/* 2. Our Story Section — Premium Staggered Layout */}
-        <section className="py-24 px-6 bg-white">
+        <section className="py-24 px-6 bg-white overflow-hidden">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
 
@@ -168,7 +168,7 @@ const AboutUs = () => {
                   Our Foundation
                 </div>
 
-                <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-8 leading-[1.2]">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 mb-8 leading-[1.2] break-words">
                   A Legacy Rooted in <br />
                   <span className="text-green-600">Sustainability.</span>
                 </h2>

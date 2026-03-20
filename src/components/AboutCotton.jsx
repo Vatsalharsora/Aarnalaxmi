@@ -1,158 +1,227 @@
-import React, { useEffect, useRef, useState } from 'react';
-import cottonFlower from '../assets/cotton_flower_closeup.png';
-import cottonHarvest from '../assets/cotton_harvesting.png';
-import cottonFiber from '../assets/cotton_processing.png';
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import SEO from './SEO';
+import cottonPlantImg from '../assets/cotton_flower_closeup.png';
+import cottonHarvestImg from '../assets/image_the_heritage_of_cotton.png';
+
+// High-quality placeholders for the specific requested images we don't have locally
+const fabricImg = "https://images.unsplash.com/photo-1596040033229-a9b21ead15ab?auto=format&fit=crop&q=80";
+const productsImg = "https://images.unsplash.com/photo-1581655369688-6677f48074d0?auto=format&fit=crop&q=80";
 
 const AboutCotton = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
-
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setIsVisible(true); },
-      { threshold: 0.15 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
+    window.scrollTo(0, 0);
+    
+    // Simple intersection observer for reveal animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-reveal');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    const elements = document.querySelectorAll('.will-reveal');
+    elements.forEach(el => observer.observe(el));
+
     return () => observer.disconnect();
   }, []);
 
-  const images = [
-    { src: cottonFlower, alt: 'Cotton flower close-up', label: 'Cotton Flower' },
-    { src: cottonHarvest, alt: 'Cotton harvesting', label: 'Harvesting' },
-    { src: cottonFiber, alt: 'Cotton fiber processing', label: 'Processing' },
-  ];
-
   return (
-    <section id="about-cotton" ref={sectionRef} className="py-24 bg-white relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-green-50 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-emerald-50 rounded-full translate-y-1/2 -translate-x-1/2 pointer-events-none" />
+    <>
+      <SEO
+        title="About Cotton | Properties, Types & Uses - Aarnalaxmi"
+        description="Discover why cotton is special. Learn about its natural properties, various types like Organic and Egyptian, and its versatile uses worldwide."
+        keywords="about cotton, why cotton is special, types of cotton, organic cotton, Egyptian cotton, cotton uses, natural fibers, sustainable clothing"
+        url="/about-cotton"
+      />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-8 relative">
-        {/* Section Header */}
-        <div className={`text-center mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <span className="inline-flex items-center gap-2 px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-semibold mb-4 uppercase tracking-widest">
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
-            </svg>
-            Natural Quality
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-5 leading-tight">
-            The Power of{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-600">
-              Natural Cotton
+      <div className="bg-slate-50 overflow-hidden mt-[76px]">
+        {/* 1. Hero Banner (Cotton Plant) */}
+        <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
+          <div className="absolute inset-0">
+            <img src={cottonPlantImg} alt="Raw Cotton Plant" className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
+          </div>
+          <div className="relative z-10 text-center px-6 max-w-4xl will-reveal opacity-0 translate-y-10 transition-all duration-1000">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-green-500/20 text-green-300 font-bold uppercase tracking-[0.2em] text-sm mb-6 border border-green-500/30 backdrop-blur-md">
+              🌿 The Miracle Fiber
             </span>
-          </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full mx-auto mb-6" />
-        </div>
+            <h1 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight">
+              About <span className="text-green-400">Cotton</span>
+            </h1>
+            <p className="text-xl text-gray-200 font-medium max-w-2xl mx-auto leading-relaxed">
+              Cotton is one of the most widely used natural fibers in the world, known for its softness, breathability, and versatility.
+            </p>
+          </div>
+        </section>
 
-        {/* Main 2-Column Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
-          {/* Left: Images Grid */}
-          <div className={`transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-            <div className="grid grid-cols-2 gap-4">
-              {/* Large image */}
-              <div className="col-span-2 row-span-1 relative group rounded-2xl overflow-hidden shadow-xl h-64">
-                <img
-                  src={images[0].src}
-                  alt={images[0].alt}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                <span className="absolute bottom-3 left-4 text-white font-semibold text-sm bg-green-500/80 px-3 py-1 rounded-full backdrop-blur-sm">
-                  {images[0].label}
+        {/* 2. Intro Section (Cotton Harvesting) */}
+        <section className="py-24 px-6 bg-white overflow-hidden">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="will-reveal opacity-0 translate-y-10 transition-all duration-1000">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight break-words">
+                The Heritage of Cotton
+                <div className="h-1.5 w-20 bg-green-500 rounded-full mt-5" />
+              </h2>
+              <div className="space-y-6 text-lg text-slate-600 leading-relaxed">
+                <p>
+                  It is grown from the cotton plant and has been used for thousands of years to create comfortable and durable fabrics.
+                </p>
+                <p>
+                  Cotton fibers are naturally soft, lightweight, and gentle on the skin, making them ideal for everyday wear. Due to its breathable nature, cotton helps keep the body cool in hot weather and provides comfort throughout the day.
+                </p>
+              </div>
+            </div>
+            <div className="relative will-reveal opacity-0 translate-y-10 transition-all duration-1000 delay-200">
+              <div className="absolute inset-0 bg-green-100 rounded-[2.5rem] rotate-3 scale-105 -z-10" />
+              <img 
+                src={cottonHarvestImg} 
+                alt="Farmers picking cotton" 
+                className="w-full h-[400px] object-cover rounded-[2.5rem] shadow-xl"
+              />
+              <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-md px-6 py-3 rounded-2xl shadow-lg border border-white/20">
+                <span className="text-green-600 font-bold flex items-center gap-2">
+                  <span>👨‍🌾</span> Harvesting Nature's Best
                 </span>
               </div>
-              {/* Two small images */}
-              {images.slice(1).map((img, i) => (
-                <div key={i} className="relative group rounded-2xl overflow-hidden shadow-lg h-48">
-                  <img
-                    src={img.src}
-                    alt={img.alt}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                  <span className="absolute bottom-3 left-3 text-white font-semibold text-xs bg-green-500/80 px-2 py-1 rounded-full backdrop-blur-sm">
-                    {img.label}
-                  </span>
-                </div>
-              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* 3. Why Cotton is Special */}
+        <section className="py-24 px-6 bg-slate-50 relative">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16 will-reveal opacity-0 translate-y-10 transition-all duration-700">
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+                🌱 Why Cotton is Special
+              </h2>
+              <p className="text-lg text-slate-600 max-w-2xl mx-auto">The natural properties that make cotton the world's favorite fabric.</p>
             </div>
 
-            {/* Floating badge */}
-            <div className="mt-4 inline-flex items-center gap-3 bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 px-5 py-3 rounded-2xl shadow-sm">
-              <div className="w-10 h-10 bg-gradient-to-br from-green-400 to-emerald-500 rounded-xl flex items-center justify-center text-white text-lg">
-                🌿
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+              {/* Features List */}
+              <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {[
+                  { icon: '♻️', title: 'Natural & Eco-Friendly', desc: 'Biodegradable and sustainable.' },
+                  { icon: '☁️', title: 'Soft & Comfortable', desc: 'Perfect for daily wear.' },
+                  { icon: '🌬️', title: 'Breathable Fabric', desc: 'Keeps you cool and fresh.' },
+                  { icon: '🛡️', title: 'Durable', desc: 'Long-lasting and easy to maintain.' },
+                  { icon: '✨', title: 'Hypoallergenic', desc: 'Suitable for sensitive skin.' }
+                ].map((feature, i) => (
+                  <div key={i} className="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow will-reveal opacity-0 translate-y-10 duration-700" style={{ transitionDelay: (i * 100) + 'ms' }}>
+                    <div className="text-3xl mb-4 bg-green-50 w-12 h-12 flex items-center justify-center rounded-2xl">{feature.icon}</div>
+                    <h3 className="text-xl font-bold text-slate-800 mb-2">{feature.title}</h3>
+                    <p className="text-slate-500">{feature.desc}</p>
+                  </div>
+                ))}
               </div>
-              <div>
-                <div className="font-bold text-gray-800 text-sm">100% Natural Fiber</div>
-                <div className="text-xs text-gray-500">Sustainably sourced & processed</div>
+              
+              {/* Fabric Image */}
+              <div className="lg:col-span-5 h-[500px] relative rounded-3xl overflow-hidden shadow-2xl will-reveal opacity-0 translate-y-10 transition-all duration-1000">
+                <img src={fabricImg} alt="Cotton Fabric Texture" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <h3 className="absolute bottom-8 left-8 text-white text-2xl font-bold">Pure Organic Texture</h3>
               </div>
             </div>
           </div>
+        </section>
 
-          {/* Right: Content */}
-          <div className={`transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
-            <p className="text-lg text-gray-600 leading-relaxed mb-8">
-              Cotton is one of the most widely used natural fibers in the world. Known for its softness, breathability, and durability, cotton plays a vital role in the textile industry. Our cotton is sourced from trusted farmers and processed with modern standards to ensure high quality and reliability for global textile manufacturers.
-            </p>
+        {/* 4. Types of Cotton */}
+        <section className="py-24 px-6 bg-white shrink-0">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16 will-reveal opacity-0 translate-y-10 transition-all duration-700">
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+                🧵 Types of Cotton
+              </h2>
+            </div>
 
-            {/* Feature list */}
-            <div className="space-y-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
-                {
-                  icon: '🌾',
-                  title: 'Farm-to-Fabric Traceability',
-                  desc: 'Full transparency from cotton seed to finished fiber bale.',
-                  color: 'bg-green-100 text-green-600',
-                },
-                {
-                  icon: '🧪',
-                  title: 'Rigorous Quality Testing',
-                  desc: 'Every batch is tested for purity, strength, and micronaire.',
-                  color: 'bg-emerald-100 text-emerald-600',
-                },
-                {
-                  icon: '🌍',
-                  title: 'Global Export Standards',
-                  desc: 'Compliant with international textile and organic certifications.',
-                  color: 'bg-teal-100 text-teal-600',
-                },
-                {
-                  icon: '♻️',
-                  title: 'Sustainable Practices',
-                  desc: 'Eco-friendly farming methods that protect the environment.',
-                  color: 'bg-lime-100 text-lime-700',
-                },
-              ].map((item, i) => (
-                <div
-                  key={i}
-                  className="flex items-start gap-4 p-4 rounded-xl bg-gray-50 border border-gray-100 hover:-translate-y-0.5 hover:shadow-md transition-all duration-300"
-                >
-                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg flex-shrink-0 ${item.color}`}>
-                    {item.icon}
+                { name: 'Organic Cotton', desc: 'Grown without harmful chemicals.', styles: 'border-emerald-100 bg-emerald-50/30 hover:bg-emerald-50', iconColor: 'text-emerald-500 border-emerald-100' },
+                { name: 'Egyptian Cotton', desc: 'Known for luxury and softness.', styles: 'border-amber-100 bg-amber-50/30 hover:bg-amber-50', iconColor: 'text-amber-500 border-amber-100' },
+                { name: 'Pima Cotton', desc: 'Extra long fibers for durability.', styles: 'border-blue-100 bg-blue-50/30 hover:bg-blue-50', iconColor: 'text-blue-500 border-blue-100' },
+                { name: 'Upland Cotton', desc: 'Most commonly used cotton.', styles: 'border-slate-100 bg-slate-50/30 hover:bg-slate-50', iconColor: 'text-slate-500 border-slate-100' }
+              ].map((type, i) => (
+                <div key={i} className={"p-8 rounded-3xl border-2 transition-colors will-reveal opacity-0 translate-y-10 duration-700 text-center " + type.styles} style={{ transitionDelay: (i * 100) + 'ms' }}>
+                  <div className={"w-16 h-16 mx-auto bg-white rounded-2xl shadow-sm flex items-center justify-center text-2xl mb-6 border " + type.iconColor}>
+                    🥇
                   </div>
-                  <div>
-                    <h4 className="font-bold text-gray-800 mb-0.5">{item.title}</h4>
-                    <p className="text-sm text-gray-500">{item.desc}</p>
-                  </div>
+                  <h3 className="text-xl font-bold text-slate-800 mb-3">{type.name}</h3>
+                  <p className="text-slate-600 font-medium">{type.desc}</p>
                 </div>
               ))}
             </div>
-
-            <a
-              href="#cotton-types"
-              className="inline-flex items-center gap-2 mt-8 px-7 py-3.5 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-green-500/30 hover:-translate-y-0.5 transition-all duration-300"
-            >
-              Explore Our Cotton Types
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
           </div>
-        </div>
+        </section>
+
+        {/* 5. Uses of Cotton */}
+        <section className="py-24 px-6 bg-slate-900 text-white relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-green-500/10 rounded-full blur-3xl -z-10" />
+          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Products Image */}
+            <div className="order-2 lg:order-1 relative rounded-3xl overflow-hidden shadow-2xl h-[500px] will-reveal opacity-0 translate-y-10 transition-all duration-1000">
+              <img src={productsImg} alt="Cotton Products" className="w-full h-full object-cover opacity-80" />
+            </div>
+
+            {/* List */}
+            <div className="order-1 lg:order-2 will-reveal opacity-0 translate-y-10 transition-all duration-1000">
+              <h2 className="text-4xl md:text-5xl font-bold mb-8">
+                👕 Uses of Cotton
+              </h2>
+              <p className="text-xl text-slate-300 mb-10">
+                Cotton is incredibly versatile and is used in a wide range of essential products daily:
+              </p>
+              
+              <ul className="space-y-6">
+                {[
+                  { title: 'Clothing', items: 'T-shirts, shirts, dresses' },
+                  { title: 'Home Textiles', items: 'Bedsheets, towels, curtains' },
+                  { title: 'Medical Supplies', items: 'Bandages, cotton pads' },
+                  { title: 'Industrial Products', items: 'Canvas, threads, filters' }
+                ].map((use, i) => (
+                  <li key={i} className="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors">
+                    <div className="w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center text-green-400 font-bold shrink-0">
+                      ✓
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-bold">{use.title}</h4>
+                      <p className="text-slate-400">{use.items}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* 6. Our Commitment */}
+        <section className="py-24 px-6 bg-green-600 text-center relative overflow-hidden">
+          {/* Subtle patterns */}
+          <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '24px 24px' }} />
+          
+          <div className="max-w-4xl mx-auto relative z-10 will-reveal opacity-0 translate-y-10 transition-all duration-1000">
+            <span className="text-6xl mb-8 block drop-shadow-lg">🌍</span>
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-8">Our Commitment</h2>
+            <p className="text-xl md:text-2xl text-green-100 font-medium leading-relaxed mb-12">
+              We believe in providing high-quality cotton products that are comfortable, sustainable, and affordable. Our focus is on delivering premium cotton materials while caring for the environment and supporting ethical farming practices.
+            </p>
+            <Link to="/#contact" className="inline-flex items-center gap-2 px-8 py-4 bg-white text-green-700 font-bold rounded-full hover:scale-105 hover:shadow-xl transition-all uppercase tracking-wider">
+              Work With Us
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </Link>
+          </div>
+        </section>
+
+        {/* Floating Style for Reveal Animations */}
+        <style dangerouslySetInnerHTML={{__html: `
+          .animate-reveal {
+            opacity: 1 !important;
+            transform: translate(0,0) !important;
+          }
+        `}} />
       </div>
-    </section>
+    </>
   );
 };
 
