@@ -1,0 +1,57 @@
+﻿
+> aarnalaxmi@0.0.0 build
+> vite build
+
+[36mvite v7.3.1 [32mbuilding client environment for production...[36m[39m
+transforming...
+[32mΓ£ô[39m 60 modules transformed.
+node.exe : [31mΓ£ù[39m 
+Build failed in 716ms
+At line:1 char:1
++ & "C:\Program 
+Files\nodejs/node.exe" 
+"C:\Program 
+Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~
+    + CategoryInfo           
+   : NotSpecifi    ed: 
+([31mΓ£ù[39m     Build 
+failed in 7    16ms:String) 
+[], R    emoteException
+    + FullyQualifiedEr    
+rorId : NativeComm    
+andError
+ 
+[31merror during build:
+[31mCould not resolve 
+"../../data/blogPosts" from "
+src/pages/BlogDetail.jsx"[31
+m
+file: [36mC:/Users/hp/OneDri
+ve/Documents/Vatsal Workspace
+/Aarnalaxmi/src/pages/BlogDet
+ail.jsx[31m
+    at getRollupError (file:/
+//C:/Users/hp/OneDrive/Docume
+nts/Vatsal%20Workspace/Aarnal
+axmi/node_modules/rollup/dist
+/es/shared/parseAst.js:402:41
+)
+    at error (file:///C:/User
+s/hp/OneDrive/Documents/Vatsa
+l%20Workspace/Aarnalaxmi/node
+_modules/rollup/dist/es/share
+d/parseAst.js:398:42)
+    at ModuleLoader.handleInv
+alidResolvedId (file:///C:/Us
+ers/hp/OneDrive/Documents/Vat
+sal%20Workspace/Aarnalaxmi/no
+de_modules/rollup/dist/es/sha
+red/node-entry.js:21710:24)
+    at file:///C:/Users/hp/On
+eDrive/Documents/Vatsal%20Wor
+kspace/Aarnalaxmi/node_module
+s/rollup/dist/es/shared/node-
+entry.js:21670:26[39m

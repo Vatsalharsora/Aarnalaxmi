@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import SEO from '../components/SEO';
-import blogPosts from '../../data/blogPosts';
+import blogPosts from '../data/blogPosts';
 
 const BlogDetail = () => {
   const { id } = useParams();

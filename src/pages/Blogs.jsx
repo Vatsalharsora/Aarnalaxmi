@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
-import blogPosts from '../../data/blogPosts';
+import blogPosts from '../data/blogPosts';
 
 const Blogs = () => {
   const heroRef = useRef(null);

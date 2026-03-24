@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
-import bannerImg from '../../assets/sustainable_Cotton_banner.png';
+import bannerImg from '../assets/sustainable_Cotton_banner.png';
 
 const SustainableCotton = () => {
   useEffect(() => {

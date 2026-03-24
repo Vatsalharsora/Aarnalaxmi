@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import SEO from '../components/SEO';
-import aboutUsBanner from '../../assets/about_us_banner.jpg';
-import introImg from '../../assets/cotton_harvesting.png';
-import sustainImg from '../../assets/cotton_field_wide.png';
+import aboutUsBanner from '../assets/about_us_banner.jpg';
+import introImg from '../assets/cotton_harvesting.png';
+import sustainImg from '../assets/cotton_field_wide.png';
 import GoogleMap from '../components/GoogleMap';
 
 const AboutUs = () => {

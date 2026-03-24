@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
-import cottonPlantImg from '../../assets/about_cotton_banner.png';
-import cottonHarvestImg from '../../assets/image_the_heritage_of_cotton.png';
-import fabricImg from '../../assets/cotton_fabric_texture.jpg';
-import productsImg from '../../assets/cotton-products.png';
+import cottonPlantImg from '../assets/about_cotton_banner.png';
+import cottonHarvestImg from '../assets/image_the_heritage_of_cotton.png';
+import fabricImg from '../assets/cotton_fabric_texture.jpg';
+import productsImg from '../assets/cotton-products.png';
 
 const AboutCotton = () => {
   useEffect(() => {
