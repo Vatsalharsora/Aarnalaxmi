@@ -16,29 +16,29 @@ const cottonMenuItems = [
     desc: 'Learn about natural cotton fiber',
   },
   {
-    href: '#cotton-types',
+    href: '/sustainable-cotton',
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8}
-          d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+          d="M12 6v6m0 0v6m0-6h6m0 0h6m-6-6H6m0 0H0" />
       </svg>
     ),
-    label: 'Our Cotton Types',
-    desc: 'Raw, Organic, Sustainable & Export',
+    label: 'Sustainable Cotton',
+    desc: 'Eco-friendly & organic cotton',
   },
   {
-    href: '#process',
+    href: '/membership-certificate',
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8}
-          d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     ),
-    label: 'Farm to Fabric',
-    desc: 'Our 4-step cotton process',
+    label: 'Membership & Certificate',
+    desc: 'Partnership & Frame to Fabric',
   },
   {
-    href: '#gallery',
+    href: '/gallery',
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8}

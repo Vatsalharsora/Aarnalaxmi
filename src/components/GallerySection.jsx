@@ -5,6 +5,9 @@ import cottonField from '../assets/cotton_field_wide.png';
 import cottonProcessing from '../assets/cotton_processing.png';
 import cottonStorage from '../assets/cotton_storage.png';
 import heroBg from '../assets/hero_cotton_farm.png';
+import cottonAerial from '../assets/cotton_aerial_harvest.png';
+import cottonFabric from '../assets/cotton_fabric_texture.jpg';
+import cottonHeritage from '../assets/image_the_heritage_of_cotton.png';
 
 const GallerySection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -28,10 +31,13 @@ const GallerySection = () => {
   }, []);
 
   const images = [
+    { src: cottonFabric, alt: 'Cotton Fabric Texture', label: 'Fabric Texture', size: 'small' },
+    { src: cottonAerial, alt: 'Aerial Cotton Harvest', label: 'Aerial Harvest', size: 'large' },
     { src: cottonFlower, alt: 'Cotton Plant', label: 'Cotton Plant', size: 'large' },
     { src: cottonHarvest, alt: 'Cotton Harvesting', label: 'Cotton Harvesting', size: 'small' },
     { src: cottonField, alt: 'Cotton Fields', label: 'Cotton Fields', size: 'small' },
     { src: cottonProcessing, alt: 'Cotton Processing', label: 'Cotton Processing', size: 'large' },
+    { src: cottonHeritage, alt: 'Legacy Cotton', label: 'Heritage Cotton', size: 'small' },
     { src: heroBg, alt: 'Cotton Fiber', label: 'Cotton Farm', size: 'small' },
     { src: cottonStorage, alt: 'Cotton Storage', label: 'Cotton Storage', size: 'small' },
   ];

@@ -1,12 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
-import SEO from './SEO';
-
-// Import images
-import blog1 from '../assets/blog_organic_cotton.png';
-import blog2 from '../assets/blog_market_trends.png';
-import blog3 from '../assets/blog_processing_tech.png';
-import blogFiber from '../assets/blog_fiber_science.png';
-import blogBaling from '../assets/blog_baling_storage.png';
+import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
+import blogPosts from '../../data/blogPosts';
 
 const Blogs = () => {
   const heroRef = useRef(null);
@@ -48,99 +43,6 @@ const Blogs = () => {
 
   const categories = ['All', 'Sustainability', 'Market Analysis', 'Technology', 'Industry Standards', 'Environment', 'Innovation', 'Research', 'Shipping'];
 
-  const blogPosts = [
-    {
-      id: 1,
-      title: "The Future of Sustainable Cotton Farming in India",
-      excerpt: "How modern technology and organic practices are revolutionizing the way we grow cotton while protecting our soil.",
-      category: "Sustainability",
-      date: "March 15, 2024",
-      image: blog1,
-      author: "Dr. Rajesh Mehta"
-    },
-    {
-      id: 2,
-      title: "Understanding Global Cotton Market Trends for 2024",
-      excerpt: "An in-depth analysis of supply chain shifts and growing demand for premium certified cotton in European markets.",
-      category: "Market Analysis",
-      date: "March 10, 2024",
-      image: blog2,
-      author: "Sanjay Patel"
-    },
-    {
-      id: 3,
-      title: "The Science of Staple Length: Why Fiber Quality Matters",
-      excerpt: "Exploring the technical aspects of cotton fiber strength and length, and how it impacts high-end textile manufacturing.",
-      category: "Quality Control",
-      date: "March 08, 2024",
-      image: blogFiber,
-      author: "Dr. Kavita Rao"
-    },
-    {
-      id: 4,
-      title: "Innovation in Cotton Processing: Beyond the Ginning",
-      excerpt: "Exploring our new high-tech processing facility that ensures zero contamination and 100% fiber integrity.",
-      category: "Technology",
-      date: "March 05, 2024",
-      image: blog3,
-      author: "Vikram Shah"
-    },
-    {
-      id: 5,
-      title: "Bailing and Storage: Preserving Fiber Quality During Transport",
-      excerpt: "Standardized bailing techniques and humidity-controlled storage that prevent fiber degradation during export.",
-      category: "Logistics",
-      date: "March 01, 2024",
-      image: blogBaling,
-      author: "Arjun Khanna"
-    },
-    {
-      id: 6,
-      title: "GOTS vs. BCI: Decoding Cotton Certifications for Buyers",
-      excerpt: "A comprehensive guide to understanding different global sustainability certificates and their impact on branding.",
-      category: "Industry Standards",
-      date: "February 25, 2024",
-      image: blog1,
-      author: "Anita Desai"
-    },
-    {
-      id: 7,
-      title: "Soil Health Management: The Secret to High-Yield Cotton",
-      excerpt: "How regenerative farming and soil mapping are helping our farmers produce stronger and whiter cotton fibers.",
-      category: "Environment",
-      date: "February 20, 2024",
-      image: blog2,
-      author: "Amit Kumar"
-    },
-    {
-      id: 8,
-      title: "From Seed to Shirt: The Transparent Supply Chain",
-      excerpt: "How blockchain technology is helping us provide 100% traceability for every bale of cotton we export.",
-      category: "Innovation",
-      date: "February 15, 2024",
-      image: blog3,
-      author: "Priya Sharma"
-    },
-    {
-      id: 9,
-      title: "The Impact of Climate Change on Cotton Fiber Strength",
-      excerpt: "Adapting to changing weather patterns with resilient seed varieties and smart irrigation systems.",
-      category: "Research",
-      date: "February 10, 2024",
-      image: blogFiber,
-      author: "Dr. Rajesh Mehta"
-    },
-    {
-      id: 10,
-      title: "Export Logistics: Ensuring Contamination-Free Delivery",
-      excerpt: "Our specialized container lining and handling protocols for maintaining 'Cotton Gold' standards worldwide.",
-      category: "Shipping",
-      date: "February 05, 2024",
-      image: blogBaling,
-      author: "Vikram Shah"
-    }
-  ];
-
   const filteredPosts = activeCategory === 'All' 
     ? blogPosts 
     : blogPosts.filter(post => post.category === activeCategory);
@@ -171,7 +73,7 @@ const Blogs = () => {
           <div
             className="absolute inset-[-5%]"
             style={{
-              backgroundImage: `url(${blogFiber})`,
+              backgroundImage: `url(${blogPosts[0].image})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               transform: `translate(${mouse.x * -15}px, ${mouse.y * -10}px)`,
@@ -299,9 +201,12 @@ const Blogs = () => {
                         </div>
                         <span className="text-[11px] font-bold text-gray-700">{post.author}</span>
                       </div>
-                      <button className="text-green-600 font-black text-[12px] flex items-center gap-1 group/btn hover:gap-2 transition-all uppercase tracking-wider">
+                      <Link
+                        to={`/blogs/${post.id}`}
+                        className="text-green-600 font-black text-[12px] flex items-center gap-1 group/btn hover:gap-2 transition-all uppercase tracking-wider"
+                      >
                         Read <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </article>

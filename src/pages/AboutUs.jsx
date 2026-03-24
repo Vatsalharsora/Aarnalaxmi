@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
-import SEO from './SEO';
-import aboutUsBanner from '../assets/about_us_banner.jpg';
-import introImg from '../assets/cotton_harvesting.png';
-import sustainImg from '../assets/cotton_field_wide.png';
-import GoogleMap from './GoogleMap';
+import SEO from '../components/SEO';
+import aboutUsBanner from '../../assets/about_us_banner.jpg';
+import introImg from '../../assets/cotton_harvesting.png';
+import sustainImg from '../../assets/cotton_field_wide.png';
+import GoogleMap from '../components/GoogleMap';
 
 const AboutUs = () => {
   const heroRef = useRef(null);
@@ -44,9 +44,9 @@ const AboutUs = () => {
   return (
     <>
       <SEO
-        title="About Us | 25+ Years of Excellence in Cotton Export - Aarnalaxmi"
-        description="Discover Aarnalaxmi's journey as a top Indian cotton supplier. From regional farms in Gujarat to global leadership in premium sustainable cotton export and trading."
-        keywords="Aarnalaxmi company profile, cotton export history India, certified cotton trading partner, sustainable cotton supply chain, Ahmedabad cotton industry leaders, organic cotton heritage"
+        title="Top Organic Cotton Exporters in Gujarat | About Aarnalaxmi Cotton"
+        description="Discover Aarnalaxmi's 25+ year journey as India's leading BCI and GOTS certified organic raw cotton supplier. Exporting premium sustainable cotton bales to 65+ nations."
+        keywords="Top organic cotton exporters in Gujarat, cotton export history India, raw cotton suppliers Ahmedabad, BCI certified cotton export, sustainable cotton farming manufacturers India, Gujarat cotton industry"
         url="/about"
       />
 

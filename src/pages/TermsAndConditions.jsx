@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import SEO from './SEO';
+import SEO from '../components/SEO';
 
 const TermsAndConditions = () => {
   useEffect(() => {
